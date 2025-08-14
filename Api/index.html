@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão - API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Sistema de Gestão</h1>
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span id="userEmail"></span>
+                <span id="userRole" class="role-badge"></span>
+                <button onclick="logout()" class="btn btn-secondary">Sair</button>
+            </div>
+        </header>
+
+        <!-- Login Section -->
+        <section id="loginSection" class="section">
+            <div class="card">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main id="mainContent" style="display: none;">
+            <!-- Navigation Tabs -->
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="administradores" onclick="showTab('administradores')">Administradores</button>
+                <button class="tab-btn" data-tab="veiculos" onclick="showTab('veiculos')">Veículos</button>
+            </nav>
+
+            <!-- Administradores Tab -->
+            <section id="administradores" class="tab-content active">
+                <div class="section-header">
+                    <h2>Administradores</h2>
+                    <button id="addAdminBtn" class="btn btn-primary" onclick="showAdminForm()">Novo Administrador</button>
+                </div>
+
+                <!-- Admin Form -->
+                <div id="adminForm" class="card form-card" style="display: none;">
+                    <h3>Novo Administrador</h3>
+                    <form id="adminFormElement">
+                        <div class="form-group">
+                            <label for="adminEmail">Email:</label>
+                            <input type="email" id="adminEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminPassword">Senha:</label>
+                            <input type="password" id="adminPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminRole">Perfil:</label>
+                            <select id="adminRole" required>
+                                <option value="">Selecione...</option>
+                                <option value="Adm">Administrador</option>
+                                <option value="Editor">Editor</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <button type="button" class="btn btn-secondary" onclick="hideAdminForm()">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Admin List -->
+                <div class="card">
+                    <div class="list-header">
+                        <h3>Lista de Administradores</h3>
+                        <div class="pagination-controls">
+                            <button onclick="loadAdmins(currentAdminPage - 1)" class="btn btn-secondary" id="prevAdminBtn">Anterior</button>
+                            <span id="adminPageInfo">Página 1</span>
+                            <button onclick="loadAdmins(currentAdminPage + 1)" class="btn btn-secondary" id="nextAdminBtn">Próxima</button>
+                        </div>
+                    </div>
+                    <div id="adminsList" class="items-list"></div>
+                </div>
+            </section>
+
+            <!-- Veículos Tab -->
+            <section id="veiculos" class="tab-content">
+                <div class="section-header">
+                    <h2>Veículos</h2>
+                    <button class="btn btn-primary" onclick="showVehicleForm()">Novo Veículo</button>
+                </div>
+
+                <!-- Vehicle Form -->
+                <div id="vehicleForm" class="card form-card" style="display: none;">
+                    <h3 id="vehicleFormTitle">Novo Veículo</h3>
+                    <form id="vehicleFormElement">
+                        <input type="hidden" id="vehicleId">
+                        <div class="form-group">
+                            <label for="vehicleName">Nome:</label>
+                            <input type="text" id="vehicleName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleBrand">Marca:</label>
+                            <input type="text" id="vehicleBrand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleYear">Ano:</label>
+                            <input type="number" id="vehicleYear" min="1950" max="2030" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <button type="button" class="btn btn-secondary" onclick="hideVehicleForm()">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Vehicle List -->
+                <div class="card">
+                    <div class="list-header">
+                        <h3>Lista de Veículos</h3>
+                        <div class="pagination-controls">
+                            <button onclick="loadVehicles(currentVehiclePage - 1)" class="btn btn-secondary" id="prevVehicleBtn">Anterior</button>
+                            <span id="vehiclePageInfo">Página 1</span>
+                            <button onclick="loadVehicles(currentVehiclePage + 1)" class="btn btn-secondary" id="nextVehicleBtn">Próxima</button>
+                        </div>
+                    </div>
+                    <div id="vehiclesList" class="items-list"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Toast Messages -->
+        <div id="toast" class="toast"></div>
+
+        <!-- Adicionando modal de detalhes -->
+        <!-- Details Modal -->
+        <div id="detailsModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Detalhes</h3>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Conteúdo será inserido dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
