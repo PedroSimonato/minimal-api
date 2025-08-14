@@ -1,14 +1,33 @@
+
 # Minimal API - Exemplo de Projeto .NET
 
 Este projeto demonstra uma API minimalista utilizando .NET, Entity Framework Core e MySQL, com exemplos de autenticação, serviços, DTOs e testes automatizados.
 
+## Sobre o site desenvolvido
+
+O projeto inclui um site simples para interação com a API, localizado na pasta `Api/`:
+
+- `index.html`: Página principal do site
+- `script.js`: Scripts de integração com a API
+- `styles.css`: Estilos visuais
+
+O site permite testar funcionalidades da API, como login, cadastro e listagem de dados, de forma visual e prática.
+
+### Como usar o site
+
+1. Inicie a API conforme instruções abaixo.
+2. Abra o arquivo `Api/index.html` no navegador.
+3. Utilize as funcionalidades disponíveis para interagir com a API.
+
+
 ## Estrutura do Projeto
 
-- **Api/**: Código principal da API
-  - `Program.cs` e `Startup.cs`: Configuração da aplicação
-  - `Dominio/`: Entidades, DTOs, serviços e interfaces de domínio
-  - `Infraestrutura/Db/`: DbContext e Migrations
-  - `script/`: Scripts SQL e backup do banco
+- **Api/**: Código principal da API e arquivos do site
+   - `index.html`, `script.js`, `styles.css`: Front-end do site
+   - `Program.cs` e `Startup.cs`: Configuração da aplicação
+   - `Dominio/`: Entidades, DTOs, serviços e interfaces de domínio
+   - `Infraestrutura/Db/`: DbContext e Migrations
+   - `script/`: Scripts SQL e backup do banco
 - **Test/**: Testes automatizados (unitários e de integração)
 
 ## Como rodar o projeto
