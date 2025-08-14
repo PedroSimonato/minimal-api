@@ -1,0 +1,132 @@
+[33mcommit 73b7a837cb855865b8e76747e58cce9ca85f93fc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Wed Aug 13 14:23:22 2025 -0300
+
+    feat: Adiciona suporte a testes no DbContexto e implementa migração para garantir unicidade de email
+
+[33mcommit acda2e4abf3b780e9885ce8e8f0083a120083f81[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Wed Aug 13 12:20:32 2025 -0300
+
+    feat: Remove dados seed e configurações de teste para o contexto do banco de dados
+
+[33mcommit ce99a07044ed8c6d5ad2305ba00623090eed046a[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Wed Aug 13 09:46:17 2025 -0300
+
+    feat: Adiciona testes para a classe Administrador e atualiza a solução do projeto
+
+[33mcommit 8b047ca3c0a7d7fbd1af29a523ba413c2df89d39[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Wed Aug 13 09:14:02 2025 -0300
+
+    feat: Refatorando projeto criando sln e projeto de test
+    - Criação da configuração inicial do projeto de teste com MSTest.
+
+[33mcommit bb583a3b0e58cf36c93c70393141eb51fc241ac1[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Wed Aug 13 08:56:34 2025 -0300
+
+    Adiciona autorização baseada em roles para endpoints de administradores e veículos
+
+[33mcommit adc93f98a5eddb4da87267896dee8ca04c0cecef[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Wed Aug 13 08:39:56 2025 -0300
+
+    Adiciona configuração de segurança para Swagger com suporte a JWT e permite acesso anônimo aos endpoints de Home e Administradores
+
+[33mcommit cb3ab835b94947e234ce4f749f059b146ad09071[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 17:18:24 2025 -0300
+
+    Adiciona autenticação JWT, atualiza conexão com o MySql e cria modelo para AdministradorLogado
+
+[33mcommit f1ab1393eec8da91aa3545104c8e57779c46ce96[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 13:55:04 2025 -0300
+
+    Adiciona DTO e ModelView para Administrador, implementa métodos de inclusão e busca por ID no serviço, e atualiza endpoints para gerenciar administradores na API
+
+[33mcommit 54e5e6404923184a277b9c56de0440aaaad7514f[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 11:40:57 2025 -0300
+
+    Adiciona validação para dados do veículo e retorna erros de validação no endpoint POST
+
+[33mcommit 8232ed784367a1cb90f5fa34288c3f291d7e1e32[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 11:04:03 2025 -0300
+
+    Adiciona endpoint DELETE para remover veículo por ID
+
+[33mcommit f7006a9d81d895d31bd6b7cde5bcb975aa81b1e2[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:59:44 2025 -0300
+
+    Implementa endpoint PUT para atualizar veículo por ID
+
+[33mcommit a3dec7112e6df2aeae94cdc484d11326f01c14a1[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:53:44 2025 -0300
+
+    Adiciona endpoint GET para buscar veículo por ID
+
+[33mcommit 4fa790468b217654b88d7d77c0862eda57432687[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:48:30 2025 -0300
+
+    Adiciona tags aos endpoints para melhor organização na documentação da API
+
+[33mcommit 9159119f17db6cafeb0df7e992ddc970307cf718[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:44:15 2025 -0300
+
+    Atualiza método Todos para aceitar parâmetro de página opcional e implementa endpoint GET para listar veículos
+
+[33mcommit 8da1a9d8a61a3b6c3eb4aa826a2c5e2aef89e7de[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:36:37 2025 -0300
+
+    Adiciona DTO Veiculo e implementa endpoint para inclusão de veículos
+
+[33mcommit 4e5e6870ed986827f994913af3aced22abf2f689[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:22:44 2025 -0300
+
+    Adiciona estrutura Home e atualiza endpoint raiz para retornar objeto Home
+
+[33mcommit 2c5a1947519e5be548afed0ae9a4ec88ff0a5bea[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:10:29 2025 -0300
+
+    Adiciona configuração do Swagger para documentação da API
+
+[33mcommit 1624a7d270418ecd8049d070ff70ff40e6681920[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 10:03:22 2025 -0300
+
+    Adiciona entidade Veiculo e implementa serviços para gerenciamento de veículos
+
+[33mcommit b9948972212f937370263d3de34d97839d3946d6[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 09:22:00 2025 -0300
+
+    Implementa interface IAdministradorServico e classe AdministradorServico para gerenciamento de login
+
+[33mcommit 0346b6d3a21f7bd61cf50c92c30bfa5a58ac7eab[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 08:58:44 2025 -0300
+
+    Adiciona dados iniciais para a entidade Administrador no contexto do banco de dados
+
+[33mcommit fb1d167cffac69d8486fc1257970ea75bc07f1be[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Tue Aug 12 08:48:57 2025 -0300
+
+    Implementa contexto de banco de dados e entidade Administrador com configuração MySQL
+
+[33mcommit 1f92ca8316453ebb2abcc0c8e0b6ad17d2513fa9[m
+Author: Pedro Simonato <pedrohenrryksimonato@gmail.com>
+Date:   Mon Aug 11 14:51:36 2025 -0300
+
+    Iniciando Projeto
